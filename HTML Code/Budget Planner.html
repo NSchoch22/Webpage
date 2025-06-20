@@ -5,22 +5,93 @@
   <meta charset="UTF-8">
   <title>Budget Planner</title>
   <style>
-    body { font-family: Arial; padding: 20px; max-width: 600px; margin: auto; }
-    input, label { display: block; margin: 10px 0; }
-    .summary { margin-top: 20px; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f2f5f7;
+    padding: 40px 20px;
+    margin: 0;
+    color: #333;
+  }
 
-    header {
-      background: #2c3e50;
-      color: #fff;
-      padding: 2rem;
-      text-align: center;
+  h1 {
+    text-align: center;
+    color: #2c3e50;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 500;
+  }
+
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+
+  button {
+    margin-top: 20px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #3498db;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  button:hover {
+    background-color: #2980b9;
+  }
+
+  .summary {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9fafc;
+    border: 1px solid #dfe6e9;
+  }
+
+  canvas {
+    margin-top: 30px;
+    max-width: 100%;
+  }
+
+  .button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  @media (max-width: 600px) {
+    button {
+      width: 100%;
     }
-  </style>
+  }
+</style>
+
+  <!-- Updating Web App to include JavaScript Chart -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <header>
+    <div class = "container">
   <h1>Monthly Budget Planner</h1>
-  </header>
+  
 
   <form id="budgetForm">
     <label>Annual Salary: <input type="number" id="salary" required></label>
@@ -34,6 +105,22 @@
 
   <div class="summary" id="result"></div>
 
-  <script src="Budget Script.js"></script>
+<!-- Insert JS Chart -->
+  <canvas id="budgetChart" width="400" height="400"></canvas>
+
+  <!-- Button Grouping (CSV, PNG, PDF) -->
+<div class = "button-group">
+  <button id="exportBtn">Export Data to CSV</button>
+  <button id="downloadChartBtn">Download PNG Chart</button>
+  <button id="exportPdfBtn">Export to PDF</button> 
+</div>
+</div>
+
+<script src="Budget Script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<!-- Adding Libraries to HTML for PDF-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
 </body>
 </html>
