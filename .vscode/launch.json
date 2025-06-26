@@ -9,7 +9,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Open Schoch Webpage.html",
-            "file": "HTML Code\\Schoch Webpage.html"
+            "file": "Schoch Webpage.html"
         }
     ]
 }
